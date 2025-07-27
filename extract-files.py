@@ -97,7 +97,14 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib/libsomc_camerahal.so',
         'vendor/lib/libsomc_chokoballcmn.so',
         ): blob_fixup()
+<<<<<<< HEAD
         .replace_needed('libui.so', 'libui-v34.so'),
+=======
+            .replace_needed('libui.so', 'libui-v34.so'),
+        'vendor/etc/wfdconfig.xml': blob_fixup()
+            .regex_replace('<AudioStreamInSuspend>0</AudioStreamInSuspend>', '<AudioStreamInSuspend>1</AudioStreamInSuspend>')
+            .regex_replace('<HID>0</HID>', '<HID>1</HID>'),
+>>>>>>> d357f17 (sm8150-common: Update WFD vendor blobs from sweet_k6a OS1.0.19.0.THGMIX)
 }  # fmt: skip
 
 lib_fixups: lib_fixups_user_type = {
