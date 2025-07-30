@@ -289,6 +289,8 @@ $(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
 PRODUCT_PACKAGES += \
     libc2dcolorconvert
 
+$(call soong_config_set,stagefright,target_disable_thumbnail_block_model,true)
+
 # Light
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.sony_kumano
