@@ -7,3 +7,14 @@ cc_library_shared {
     name: "lib-imsvtshim",
     srcs: ["lib-imsvtshim.cpp"],
 }
+
+cc_library_shared {
+    name: "lib-secdshim",
+    srcs: ["lib-secdshim.cpp"],
+    ldflags: ["-Wl,-Bsymbolic"],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+    ],
+    vendor: true
+}
