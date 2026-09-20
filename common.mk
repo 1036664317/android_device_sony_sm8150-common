@@ -275,6 +275,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl
 
+# ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
@@ -354,7 +357,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
-    hardware/google/pixel \
+    hardware/google/pixel/power-libperfmgr \
     hardware/lineage/interfaces/power-libperfmgr \
     hardware/qcom-caf/common/libqti-perfd-client \
     hardware/sony
