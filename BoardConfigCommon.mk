@@ -58,7 +58,7 @@ BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_DTB_OFFSET           := 0x01f00000
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_SEPARATED_DTBO := true
-BOARD_RAMDISK_USE_LZ4 := true
+TARGET_KERNEL_CLANG_VERSION := r563880c
 TARGET_KERNEL_SOURCE := kernel/sony/sm8150
 
 # Kernel modules
@@ -187,6 +187,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 VENDOR_SECURITY_PATCH := 2021-10-01
 
 # Sepolicy
+include device/lineage/sepolicy/libion/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 include hardware/sony/sepolicy/qti/SEPolicy.mk
