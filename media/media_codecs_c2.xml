@@ -87,7 +87,7 @@
 -->
 <Included>
     <Decoders>
-        <MediaCodec name="c2.qti.avc.decoder" type="video/avc">
+        <MediaCodec name="c2.qti.avc.decoder" type="video/avc" rank="1">
             <Alias name="OMX.qcom.video.decoder.avc" />
             <Limit name="size" min="96x96" max="4096x4096" />
             <Limit name="block-count" range="36-36864" /> <!--max-spatial: 4096x2304 -->
@@ -100,8 +100,7 @@
             <Limit name="performance-point-4096x2304" value="60" />
             <Limit name="performance-point-4096x2160" value="96" />
             <Limit name="performance-point-3840x2160" value="120" />
-            <Limit name="performance-point-1920x1088" range="480" />
-            <Limit name="performance-point-1920x1088" range="240" />
+            <Limit name="performance-point-1920x1088" value="240" />
             <Limit name="performance-point-1280x720" value="480" />
             <Feature name="adaptive-playback" />
             <Feature name="can-swap-width-height" value="1" />
@@ -120,8 +119,7 @@
             <Limit name="performance-point-4096x2304" value="60" />
             <Limit name="performance-point-4096x2160" value="96" />
             <Limit name="performance-point-3840x2160" value="120" />
-            <Limit name="performance-point-1920x1088" range="480" />
-            <Limit name="performance-point-1920x1088" range="240" />
+            <Limit name="performance-point-1920x1088" value="240" />
             <Limit name="performance-point-1280x720" value="480" />
             <Feature name="adaptive-playback" />
             <Feature name="can-swap-width-height" value="1" />
@@ -143,7 +141,7 @@
             <Feature name="secure-playback" required="true" />
             <Feature name="can-swap-width-height" value="1" />
         </MediaCodec>
-        <MediaCodec name="c2.qti.hevc.decoder" type="video/hevc" >
+        <MediaCodec name="c2.qti.hevc.decoder" type="video/hevc" rank="1" >
             <Alias name="OMX.qcom.video.decoder.hevc" />
             <Limit name="size" min="96x96" max="4096x4096" />
             <Limit name="block-count" range="36-36864" /> <!--max-spatial: 4096x2304 -->
@@ -156,8 +154,7 @@
             <Limit name="performance-point-4096x2304" value="60" />
             <Limit name="performance-point-4096x2160" value="96" />
             <Limit name="performance-point-3840x2160" value="120" />
-            <Limit name="performance-point-1920x1088" range="480" />
-            <Limit name="performance-point-1920x1088" range="240" />
+            <Limit name="performance-point-1920x1088" value="240" />
             <Limit name="performance-point-1280x720" value="480" />
             <Feature name="adaptive-playback" />
             <Feature name="can-swap-width-height" value="1" />
@@ -197,7 +194,7 @@
             <Feature name="adaptive-playback" />
             <Feature name="can-swap-width-height" value="1" />
         </MediaCodec>
-        <MediaCodec name="c2.qti.vp9.decoder" type="video/x-vnd.on2.vp9" >
+        <MediaCodec name="c2.qti.vp9.decoder" type="video/x-vnd.on2.vp9" rank="1" >
             <Alias name="OMX.qcom.video.decoder.vp9" />
             <Limit name="size" min="96x96" max="4096x4096" />
             <Limit name="block-count" range="36-36864" /> <!--max-spatial: 4096x2304 -->
@@ -210,8 +207,7 @@
             <Limit name="performance-point-4096x2304" value="60" />
             <Limit name="performance-point-4096x2160" value="96" />
             <Limit name="performance-point-3840x2160" value="120" />
-            <Limit name="performance-point-1920x1088" range="480" />
-            <Limit name="performance-point-1920x1088" range="240" />
+            <Limit name="performance-point-1920x1088" value="240" />
             <Limit name="performance-point-1280x720" value="480" />
             <Feature name="adaptive-playback" />
             <Feature name="can-swap-width-height" value="1" />

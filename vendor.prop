@@ -199,8 +199,10 @@ ro.hardware.keystore_desede=true
 vendor.iop.enable_uxe=0
 
 # Media
-vendor.media.vpp.enable=true
 debug.stagefright.c2inputsurface=-1
+ro.odm.build.media_performance_class=30
+vendor.media.omx=0
+vendor.media.vpp.enable=true
 
 # NFC
 ro.camera.notify_nfc=1
