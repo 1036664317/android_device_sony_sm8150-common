@@ -1,0 +1,28 @@
+type cacaoserver, domain, coredomain;
+type cacaoserver_exec, system_file_type, exec_type, file_type;
+
+init_daemon_domain(cacaoserver)
+
+binder_use(cacaoserver)
+binder_service(cacaoserver)
+hwbinder_use(cacaoserver)
+
+add_service(cacaoserver, cacao_service)
+
+# HAL client domains
+hal_client_domain(cacaoserver, hal_camera)
+hal_client_domain(cacaoserver, hal_graphics_allocator)
+
+# Cacao IPC
+allow { appdomain -isolated_app_all } cacao_service:service_manager find;
+binder_call({ appdomain -isolated_app_all }, cacaoserver)
+binder_call(cacaoserver, { appdomain -isolated_app_all })
+
+# Allow finding hal_camera_hwservice
+allow cacaoserver hal_camera_hwservice:hwservice_manager find;
+
+# Memory and devices
+allow cacaoserver ion_device:chr_file rw_file_perms;
+allow cacaoserver dmabuf_system_heap_device:chr_file r_file_perms;
+allow cacaoserver gpu_device:chr_file rw_file_perms;
+allow cacaoserver video_device:chr_file rw_file_perms;
