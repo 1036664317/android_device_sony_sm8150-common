@@ -102,6 +102,7 @@
         "345000000",
         "257000000"
       ],
+      "DefaultIndex": 3,
       "ResetOnInit": true
     },
     {
@@ -856,12 +857,6 @@
       "Node": "PowerHALRenderingState",
       "Duration": 0,
       "Value": "EXPENSIVE_RENDERING"
-    },
-    {
-      "PowerHint": "EXPENSIVE_RENDERING",
-      "Node": "GPUMinFreq",
-      "Duration": 0,
-      "Value": "427000000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
