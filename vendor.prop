@@ -46,7 +46,7 @@ vendor.audio.feature.deepbuffer_as_primary.enable=false
 vendor.audio.feature.display_port.enable=true
 vendor.audio.feature.dsm_feedback.enable=false
 vendor.audio.feature.dynamic_ecns.enable=true
-vendor.audio.feature.ext_hw_plugin.enable=true
+vendor.audio.feature.ext_hw_plugin.enable=false
 vendor.audio.feature.external_dsp.enable=false
 vendor.audio.feature.external_speaker.enable=false
 vendor.audio.feature.external_speaker_tfa.enable=false
@@ -172,7 +172,7 @@ vendor.gatekeeper.disable_spu=true
 debug.egl.hw=0
 debug.mdpcomp.logs=0
 debug.renderengine.blur_algorithm=kawase_darkmoon
-debug.sf.disable_client_composition_cache=1
+debug.sf.disable_client_composition_cache=0
 debug.sf.enable_transaction_tracing=false
 debug.sf.hw=0
 persist.sys.sf.color_saturation=1.0
@@ -208,9 +208,14 @@ vendor.media.vpp.enable=true
 # NFC
 ro.camera.notify_nfc=1
 
-# PASR
-vendor.power.pasr.enabled=true
-vendor.pasr.activemode.enabled=true
+# LMKD
+ro.lmk.psi_complete_stall_ms=700
+ro.lmk.psi_partial_stall_ms=70
+ro.lmk.swap_free_low_percentage=10
+ro.lmk.thrashing_limit=30
+ro.lmk.thrashing_limit_decay=50
+ro.lmk.use_minfree_levels=false
+ro.lmk.use_psi=true
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so

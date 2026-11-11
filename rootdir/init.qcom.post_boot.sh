@@ -599,7 +599,7 @@ function configure_zram_parameters() {
     if [ $RamSizeGB -le 2 ]; then
         let zRamSizeMB="( $RamSizeGB * 1024 ) * 3 / 4"
     else
-        let zRamSizeMB="( $RamSizeGB * 1024 ) / 2"
+        let zRamSizeMB=4096
     fi
 
     # use MB avoid 32 bit overflow
@@ -637,8 +637,7 @@ function configure_read_ahead_kb_values() {
 
     dmpts=$(ls /sys/block/*/queue/read_ahead_kb | grep -e dm -e mmc)
 
-    # Set 128 for <= 3GB &
-    # set 512 for >= 4GB targets.
+    # Set 128 for all targets to minimize random I/O read amplification on EROFS/F2FS.
     if [ $MemTotal -le 3145728 ]; then
         echo 128 > /sys/block/mmcblk0/bdi/read_ahead_kb
         echo 128 > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
@@ -646,10 +645,10 @@ function configure_read_ahead_kb_values() {
             echo 128 > $dm
         done
     else
-        echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
-        echo 512 > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
+        echo 128 > /sys/block/mmcblk0/bdi/read_ahead_kb
+        echo 128 > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
         for dm in $dmpts; do
-            echo 512 > $dm
+            echo 128 > $dm
         done
     fi
 }
@@ -705,9 +704,10 @@ function configure_memory_parameters() {
     #
 
 ProductName=`getprop ro.product.name`
+BoardPlatform=`getprop ro.board.platform`
 low_ram=`getprop ro.config.low_ram`
 
-if [ "$ProductName" == "msmnile" ] || [ "$ProductName" == "kona" ] || [ "$ProductName" == "sdmshrike_au" ]; then
+if [ "$BoardPlatform" == "msmnile" ] || [ "$ProductName" == "msmnile" ] || [ "$ProductName" == "kona" ] || [ "$ProductName" == "sdmshrike_au" ]; then
       # Enable ZRAM
       configure_zram_parameters
       configure_read_ahead_kb_values
